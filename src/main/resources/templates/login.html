@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Admin</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Styling untuk membuat halaman login lebih rapi */
+        body {
+            background-color: #f4f7fc;
+            height: 100vh; /* Menggunakan seluruh tinggi layar */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 400px;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        .alert-danger {
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .form-control {
+            border-radius: 25px;
+            padding: 12px;
+        }
+
+        .btn-primary {
+            width: 100%;
+            border-radius: 25px;
+            padding: 12px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #888;
+        }
+
+        .footer a {
+            text-decoration: none;
+            color: #007bff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <h2>Login Admin</h2>
+
+        <!-- Form login hanya untuk kode akses -->
+        <form action="/login" method="post">
+            <div class="form-group">
+                <label for="kode">Kode Akses</label>
+                <input type="text" id="kode" name="kode" class="form-control" placeholder="Masukkan Kode Akses" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-3">Login</button>
+        </form>
+
+        <!-- Menampilkan pesan error jika ada -->
+        <div th:if="${error}" class="alert alert-danger mt-3">
+            <span th:text="${error}"></span>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

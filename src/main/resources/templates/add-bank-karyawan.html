@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Tambah Bank Karyawan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Tambah Bank Karyawan</h1>
+        <form action="/bank-karyawan/save" method="post">
+            <div class="mb-3">
+                <label for="namaKaryawan" class="form-label">Nama Karyawan</label>
+                <input type="text" id="namaKaryawan" name="namaKaryawan" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="namaBank" class="form-label">Nama Bank</label>
+                <input type="text" id="namaBank" name="namaBank" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="nomorRekening" class="form-label">Nomor Rekening</label>
+                <input type="text" id="nomorRekening" name="nomorRekening" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="cabang" class="form-label">Cabang</label>
+                <input type="text" id="cabang" name="cabang" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Simpan</button>
+        </form>
+    </div>
+</body>
+</html>

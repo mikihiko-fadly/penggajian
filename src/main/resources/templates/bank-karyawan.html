@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Daftar Bank Karyawan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Daftar Bank Karyawan</h1>
+        
+            <a href="/home" class="btn btn-outline-secondary">Kembali ke Home</a>
+        
+        <a href="/bank-karyawan/add" class="btn btn-primary mb-3">Tambah Bank Karyawan</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nama Karyawan</th>
+                    <th>Nama Bank</th>
+                    <th>Nomor Rekening</th>
+                    <th>Cabang</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="bankKaryawan : ${bankKaryawanList}">
+                    <td th:text="${bankKaryawan.id}"></td>
+                    <td th:text="${bankKaryawan.namaKaryawan}"></td>
+                    <td th:text="${bankKaryawan.namaBank}"></td>
+                    <td th:text="${bankKaryawan.nomorRekening}"></td>
+                    <td th:text="${bankKaryawan.cabang}"></td>
+                    <td>
+                        <a th:href="@{/bank-karyawan/edit/{id}(id=${bankKaryawan.id})}" class="btn btn-warning">Edit</a>
+                        <a th:href="@{/bank-karyawan/delete/{id}(id=${bankKaryawan.id})}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

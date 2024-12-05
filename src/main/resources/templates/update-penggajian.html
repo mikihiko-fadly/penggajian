@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Penggajian</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            font-family: 'Arial', sans-serif;
+            color: white;
+        }
+
+        .container {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-top: 50px;
+        }
+
+        h1 {
+            color: #ff7e5f;
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-control {
+            border-radius: 5px;
+            padding: 10px;
+            border: 2px solid #ff7e5f;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background-color: #ff7e5f;
+            color: white;
+            font-weight: bold;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background-color: #feb47b;
+        }
+
+        .btn-outline-secondary {
+            margin-top: 15px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Update Penggajian</h1>
+
+    <form th:action="@{/penggajian/update/{id}(id=${penggajian.id})}" method="post" th:object="${penggajian}">
+
+        <div class="form-group">
+            <label for="karyawan">Karyawan:</label>
+            <select name="karyawan" th:field="*{karyawan.id}" id="karyawan" class="form-control">
+                <option value="" disabled selected>Pilih Karyawan</option>
+                <option th:each="karyawan : ${karyawanList}" th:value="${karyawan.id}" th:text="${karyawan.nama}"></option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="gajiPokok">Gaji Pokok:</label>
+            <input type="number" name="gajiPokok" th:field="*{gajiPokok}" class="form-control" placeholder="Masukkan Gaji Pokok" required />
+        </div>
+
+        <div class="form-group">
+            <label for="bonus">Bonus:</label>
+            <input type="number" name="bonus" th:field="*{bonus}" class="form-control" placeholder="Masukkan Bonus" />
+        </div>
+
+        <button type="submit" class="btn">Simpan</button>
+        <a href="/penggajian" class="btn btn-outline-secondary">Kembali ke Daftar</a>
+    </form>
+</div>
+
+</body>
+</html>

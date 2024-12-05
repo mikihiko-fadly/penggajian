@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Penggajian</title>
+    <!-- Link ke Bootstrap CSS untuk mempercantik tampilan -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2g5v8j+5d8L76T4V2vA7U2kNZXzFZfFSd5/yf5c9aJ6f5z10bZ8Pf1ccovE2" crossorigin="anonymous">
+    
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradient background yang cantik */
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+        }
+
+        .container {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-top: 50px;
+        }
+
+        h1 {
+            color: #ff7e5f;
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-control {
+            border-radius: 5px;
+            padding: 10px;
+            border: 2px solid #ff7e5f;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .form-control:focus {
+            border-color: #feb47b;
+            box-shadow: 0 0 5px rgba(254, 180, 123, 0.8);
+        }
+
+        .btn {
+            background-color: #ff7e5f;
+            color: white;
+            font-weight: bold;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #feb47b;
+            color: #fff;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Tambah Penggajian</h1>
+    
+    <form th:action="@{/penggajian/add}" method="post" th:object="${penggajian}">
+        
+        <div class="form-group">
+            <label for="karyawan">Karyawan:</label>
+            <select name="karyawan" th:field="*{karyawan.id}" id="karyawan" class="form-control">
+                <option value="" disabled selected>Pilih Karyawan</option>
+                <option th:each="karyawan : ${karyawanList}" th:value="${karyawan.id}" th:text="${karyawan.nama}"></option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="gajiPokok">Gaji Pokok:</label>
+            <input type="number" name="gajiPokok" th:field="*{gajiPokok}" class="form-control" placeholder="Masukkan Gaji Pokok" required />
+        </div>
+
+        <div class="form-group">
+            <label for="bonus">Bonus:</label>
+            <input type="number" name="bonus" th:field="*{bonus}" class="form-control" placeholder="Masukkan Bonus" />
+        </div>
+
+        <button type="submit" class="btn">Simpan</button>
+    </form>
+</div>
+
+<!-- Link ke Bootstrap JS untuk interaktivitas tambahan (misalnya modals) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zyR5rF9a8CX5wADc6+R5t35XYXW74p0I4gbgS4kE" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-ZvpUoO/+PpFfE85Zt3fu52t3+mmn5gg1p6V/xTHPVoPTJlO/8VZ2SK68SKt80RRg" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-4eW9h/Scx6qZyZMEPfdHbm0j5HqVfPiZ/Jbbld5dh25rb6jz1S1I7ErVjdIbzVFu" crossorigin="anonymous"></script>
+
+</body>
+</html>

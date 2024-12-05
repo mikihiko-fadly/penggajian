@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slip Gaji</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Slip Gaji</h1>
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <th>Nama Karyawan</th>
+                    <td th:text="${slipGaji.penggajian.karyawan.nama}"></td>
+                </tr>
+                <tr>
+                    <th>Gaji Pokok</th>
+                    <td th:text="${slipGaji.penggajian.gajiPokok}"></td>
+                </tr>
+                <tr>
+                    <th>Bonus</th>
+                    <td th:text="${slipGaji.penggajian.bonus}"></td>
+                </tr>
+                <tr>
+                    <th>Tunjangan</th>
+                    <td th:text="${slipGaji.tunjangan}"></td>
+                </tr>
+                <tr>
+                    <th>Potongan PPh21</th>
+                    <td th:text="${slipGaji.potonganPph21}"></td>
+                </tr>
+                <tr>
+                    <th>Potongan BPJS</th>
+                    <td th:text="${slipGaji.potonganBpjs}"></td>
+                </tr>
+                <tr>
+                    <th>Potongan Lainnya</th>
+                    <td th:text="${slipGaji.potonganLainnya}"></td>
+                </tr>
+                <tr>
+                    <th>Total Gaji Bersih</th>
+                    <td th:text="${slipGaji.totalGajiBersih}"></td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="/penggajian" class="btn btn-secondary">Kembali</a>
+        
+    </div>
+</body>
+</html>
